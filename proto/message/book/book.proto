@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option go_package = "gf-empty/proto/message/book";
+
+package grpc.message.book;
+
+import "github.com/envoyproxy/protoc-gen-validate/validate/validate.proto";
+
+message Book {
+  int64 id = 1;
+  string name = 2 [(validate.rules).string.min_len = 1];
+  string author = 3 [(validate.rules).string.min_len = 1];
+  float price = 4 [(validate.rules).float.gt = 0];
+}
+
+message CreateRequest {
+  Book book = 1 [(validate.rules).message.required = true];
+}
+
+message CreateResponse {
+  int64 code = 1;
+  string msg = 2;
+}
+
+message GetRequest {
+  int64 id = 1 [(validate.rules).int64.gt = 0];
+}
+
+message GetResponse {
+  int64 code = 1;
+  string msg = 2;
+  Book data = 3;
+}

@@ -1,0 +1,5 @@
+[compiler]
+    name     = "main"
+    arch     = "amd64"
+    system   = "linux"
+    mod      = "none"

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "gf-empty/proto/service/book";
+
+package grpc;
+
+import "proto/message/book/book.proto";
+
+service Book {
+  rpc Create (grpc.message.book.CreateRequest) returns (grpc.message.book.CreateResponse);
+  rpc Get (grpc.message.book.GetRequest) returns (grpc.message.book.GetResponse);
+}

@@ -1,0 +1,38 @@
+[osenv]
+    APP_NAME                = "gf-empty"
+    JAEGER_ENDPOINT         = ""
+    JAEGER_SERVICE_NAME     = "gf-empty"
+
+# HTTP Server
+[server]
+	address     = ":80"
+	serverroot  = "public"
+	serveragent = ""
+	logpath     = "/tmp/log/gf-empty/server"
+
+[rpc]
+	Address     = ":50001"
+
+# Logger.
+[logger]
+    level       = "debug"
+    stdout      = true
+    StStatus    = 1
+
+[database]
+    [database.default]
+        host         = "mysql"
+        port         = "3306"
+        user         = "root"
+        pass         = ""
+        name         = "gf-empty"
+        type         = "mysql"
+        debug        = "true"
+        charset      = "utf8mb4"
+        maxIdle      = "10"
+        maxOpen      = "100"
+        maxLifetime  = "30"
+        dryrun       = "false"
+
+[redis]
+    requestid       = "redis:6379"
